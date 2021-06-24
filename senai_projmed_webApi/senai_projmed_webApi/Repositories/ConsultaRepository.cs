@@ -9,6 +9,7 @@ namespace senai_projmed_webApi.Repositories
 {
     public class ConsultaRepository : IConsultaRepository
     {
+        
         public void AtualizarIdCorpo(ConsultaDomain consulta)
         {
             throw new NotImplementedException();
@@ -21,7 +22,9 @@ namespace senai_projmed_webApi.Repositories
 
         public void Cadastrar(ConsultaDomain novaConsulta)
         {
-            throw new NotImplementedException();
+            ctx.Consultas.Add(novaConsulta);
+
+            ctx.SaveChanges();
         }
 
         public void Deletar(int id)

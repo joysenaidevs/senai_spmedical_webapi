@@ -9,29 +9,55 @@ namespace senai_projmed_webApi.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        public void AtualizarIdCorpo(UsuarioDomain consulta)
-        {
-            throw new NotImplementedException();
-        }
 
-        public UsuarioDomain BuscarPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
+        //a string de conexao vai aqui
 
-        public void Cadastrar(UsuarioDomain novaConsulta)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void Deletar(int id)
+        
+        public UsuarioDomain BuscarPorEmailSenha(string email, string senha)
         {
-            throw new NotImplementedException();
-        }
+            // Define a conexão con passando a string de conexão
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                // Define o comando a ser executado no banco de dados
+                string querySelect = "SELECT idUsuario, email, senha, permissao FROM Usuarios WHERE email = @email AND senha = @senha;";
 
-        public List<UsuarioDomain> ListarTodos()
-        {
-            throw new NotImplementedException();
+                // Define o comando cmd passando a query e a conexão
+                using (SqlCommand cmd = new SqlCommand(querySelect, con))
+                {
+                    // Define os valores dos parâmetros
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@senha", senha);
+
+                    // Abre a conexão com o banco de dados
+                    con.Open();
+
+                    // Executa o comando e armazena os dados no objeto rdr
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    // Caso dados tenham sido obtidos
+                    if (rdr.Read())
+                    {
+                        // Cria um objeto do tipo UsuarioDomain
+                        UsuarioDomain usuarioBuscado = new UsuarioDomain
+                        {
+                            // Atribui às propriedades os valores das colunas do banco de dados
+                            idUsuario   = Convert.ToInt32(rdr["idUsuario"]),
+                            email       = rdr["email"].ToString(),
+                            senha       = rdr["senha"].ToString(),
+                            permissao   = rdr["nomeUsuario"].ToString()
+                        };
+
+                        // Retorna o usuário buscado
+                        return usuarioBuscado;
+                    }
+
+                    // Caso não encontre um email e senha correspondente, retorna null
+                    return null;
+                }
+            }
         }
     }
+}
+    
 }
