@@ -34,7 +34,17 @@ namespace senai_projmed_webApi.Repositories
 
         public List<ConsultaDomain> ListarTodos()
         {
-            throw new NotImplementedException();
+            return ctx.Consultas
+
+                 .Include(c => c.IdPacienteNavigation)
+
+                 .Include(c => c.IdMedicoNavigation)
+
+                 .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation)
+
+                 .Include(c => c.IdStatusConsultaNavigation)
+
+                 .ToList();
         }
     }
 }

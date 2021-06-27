@@ -24,12 +24,44 @@ namespace senai_projmed_webApi.Repositories
 
         public ClinicasDomain BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            //try
+            //{
+            //    return Ok(_clinicaRepository.BuscarPorId(id));
+            //}
+            //catch (Exception erro)
+            //{
+            //    return BadRequest(erro);
+            //}
         }
-        w
+        
+        /// <summary>
+        /// Cadastra uma nova clinica
+        /// </summary>
+        /// <param name="novaClinica">objeto novaClinica com as informações que serão cadastradas</param>
         public void Cadastrar(ClinicasDomain novaClinica)
         {
-            ctx.Cons
+            //ctx.Clinicas.Add(novaClinica);
+
+            //ctx.SaveChanges();
+
+            // declara a sqlConnection passando a string de conexao como parametro
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                                        // INSERT INTO Clinicas(nomeFantasia) VALUES ('PLENA');
+                                        // INSERT INTO Clinicas(nomeFantasia) VALUES ('Joana D'Arc ');
+                string queryInsert = "INSERT INTO Clinicas(nomeFantasia) VALUES ('" + novaClinica.nomeFantasia + "')";
+                                        //nao usar dessa forma para n causar efeito joana D'Arc
+
+                //  declara o SqlCommandQuery que era executada ea conexao como parametros
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+                    //abre a conexao com o banco de dados
+                    con.Open();
+
+                    // executa a query
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Deletar(int id)
@@ -37,6 +69,10 @@ namespace senai_projmed_webApi.Repositories
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Lista todas as clinicas existentes
+        /// </summary>
+        /// <returns>Lista das clinicas e um StatusCode 200 (Ok)</returns>
         public List<ClinicasDomain> ListarTodos()
         {
             // cria uma lista onde serão armazenados os dados, listaClinicas
@@ -46,8 +82,9 @@ namespace senai_projmed_webApi.Repositories
             using (SqlConnection con = new SqlConnection(stringConexao) )
             {
                 string querySelectAll = "SELECT idClinica, nomeFantasia FROM Clinicas ";
-                
-                con.open();
+
+                //abre conexão com o banco de dados
+                con.Open();
 
                 // declara o SqlDataReader rdr para percorrer a tabela do banco de dados
                 SqlDataReader rdr;

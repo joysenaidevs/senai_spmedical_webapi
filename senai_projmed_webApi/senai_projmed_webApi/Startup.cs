@@ -16,6 +16,9 @@ namespace senai_projmed_webApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // adicionando um serivco para permitir a leitura dos controllers
+            // define o uso de controllers
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,10 +33,8 @@ namespace senai_projmed_webApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                // define o mapeamento dos controllers
+                endpoints.MapControllers();
             });
         }
     }
