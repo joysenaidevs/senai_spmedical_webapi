@@ -37,7 +37,7 @@ namespace senai_projmed_webApi.Interfaces
         /// Atualiza uma nova clinica existente passando o id pelo corpo da requisição
         /// </summary>
         /// <param name="clinicas">objeto clinica que sera atualizada</param>
-        void AtualizarIdCorpo(ClinicasDomain clinicas);
+        void AtualizarIdUrl(int id, ClinicasDomain clinicaAtualizada);
 
         /// <summary>
         /// deleta um genêro
