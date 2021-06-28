@@ -1,18 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "yfFpOvUuPADBkjfOnDnrS94BxxFZSskkaxL0ayhovZlOPVt3ZvzZf4GXWq1VrXCTGD2gtz2bb06lTP878tRUMQ==",
+  "dgSpecHash": "IJvvRFt3AXR6tQ2kul/9kyrOkX5v+AL51ufX0BxqfTPYWEKt2wd4hmM4oCipQ5OAnPWQdAzW15o3hTBxnyA2Yw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Neide\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj",
+  "projectFilePath": "C:\\Users\\52391129831\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Neide\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
-    "C:\\Users\\Neide\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
-    "C:\\Users\\Neide\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
-    "C:\\Users\\Neide\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\Neide\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\Neide\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\Neide\\.nuget\\packages\\system.data.sqlclient\\4.8.2\\system.data.sqlclient.4.8.2.nupkg.sha512",
-    "C:\\Users\\Neide\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\Neide\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+    "C:\\Users\\52391129831\\.nuget\\packages\\google.apis\\1.52.0\\google.apis.1.52.0.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\google.apis.admin.directory.directory_v1\\1.52.0.2364\\google.apis.admin.directory.directory_v1.1.52.0.2364.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\google.apis.auth\\1.52.0\\google.apis.auth.1.52.0.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\google.apis.core\\1.52.0\\google.apis.core.1.52.0.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\system.data.sqlclient\\4.8.2\\system.data.sqlclient.4.8.2.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\52391129831\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

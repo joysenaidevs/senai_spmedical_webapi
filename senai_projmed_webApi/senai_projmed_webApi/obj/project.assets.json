@@ -2,6 +2,58 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "Google.Apis/1.52.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis.Core": "1.52.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.dll": {}
+        }
+      },
+      "Google.Apis.Admin.Directory.directory_v1/1.52.0.2364": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis": "1.52.0",
+          "Google.Apis.Auth": "1.52.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Admin.Directory.directory_v1.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Admin.Directory.directory_v1.dll": {}
+        }
+      },
+      "Google.Apis.Auth/1.52.0": {
+        "type": "package",
+        "dependencies": {
+          "Google.Apis": "1.52.0",
+          "Google.Apis.Core": "1.52.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {},
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {}
+        }
+      },
+      "Google.Apis.Core/1.52.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -32,6 +84,15 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "Newtonsoft.Json/12.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
@@ -134,6 +195,108 @@
     }
   },
   "libraries": {
+    "Google.Apis/1.52.0": {
+      "sha512": "5YWTBzHuNUiYIUoIBkCGYMokyYuaOuAn+w96lIJ2WNqeiAurKq3ZLqZ86fYae32PDWHZa+itFYc9O1iVfYi5dQ==",
+      "type": "package",
+      "path": "google.apis/1.52.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.1.52.0.nupkg.sha512",
+        "google.apis.nuspec",
+        "lib/net45/Google.Apis.PlatformServices.dll",
+        "lib/net45/Google.Apis.dll",
+        "lib/net45/Google.Apis.pdb",
+        "lib/net45/Google.Apis.xml",
+        "lib/netstandard1.3/Google.Apis.dll",
+        "lib/netstandard1.3/Google.Apis.pdb",
+        "lib/netstandard1.3/Google.Apis.xml",
+        "lib/netstandard2.0/Google.Apis.dll",
+        "lib/netstandard2.0/Google.Apis.pdb",
+        "lib/netstandard2.0/Google.Apis.xml"
+      ]
+    },
+    "Google.Apis.Admin.Directory.directory_v1/1.52.0.2364": {
+      "sha512": "7X9MBeiAlJEddKcq5dzJiYHkhD3Kr6A5vc+LqfpXUcE1JxisSccqnxgTvWM+71c27i8hFyzcf1MoxLXqbLo3sg==",
+      "type": "package",
+      "path": "google.apis.admin.directory.directory_v1/1.52.0.2364",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.admin.directory.directory_v1.1.52.0.2364.nupkg.sha512",
+        "google.apis.admin.directory.directory_v1.nuspec",
+        "lib/net40/Google.Apis.Admin.Directory.directory_v1.dll",
+        "lib/net40/Google.Apis.Admin.Directory.directory_v1.pdb",
+        "lib/net40/Google.Apis.Admin.Directory.directory_v1.xml",
+        "lib/net45/Google.Apis.Admin.Directory.directory_v1.dll",
+        "lib/net45/Google.Apis.Admin.Directory.directory_v1.pdb",
+        "lib/net45/Google.Apis.Admin.Directory.directory_v1.xml",
+        "lib/netstandard1.0/Google.Apis.Admin.Directory.directory_v1.dll",
+        "lib/netstandard1.0/Google.Apis.Admin.Directory.directory_v1.pdb",
+        "lib/netstandard1.0/Google.Apis.Admin.Directory.directory_v1.xml",
+        "lib/netstandard1.3/Google.Apis.Admin.Directory.directory_v1.dll",
+        "lib/netstandard1.3/Google.Apis.Admin.Directory.directory_v1.pdb",
+        "lib/netstandard1.3/Google.Apis.Admin.Directory.directory_v1.xml",
+        "lib/netstandard2.0/Google.Apis.Admin.Directory.directory_v1.dll",
+        "lib/netstandard2.0/Google.Apis.Admin.Directory.directory_v1.pdb",
+        "lib/netstandard2.0/Google.Apis.Admin.Directory.directory_v1.xml"
+      ]
+    },
+    "Google.Apis.Auth/1.52.0": {
+      "sha512": "T7JKjq4zmk8b4lrOn+kyatgDQdLytoV+i6Fw4agyWlm4Q+bbZbu3DcCz+UuliEtXHbShgHD1PWfiMJoQGuPEog==",
+      "type": "package",
+      "path": "google.apis.auth/1.52.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.auth.1.52.0.nupkg.sha512",
+        "google.apis.auth.nuspec",
+        "lib/net45/Google.Apis.Auth.PlatformServices.dll",
+        "lib/net45/Google.Apis.Auth.dll",
+        "lib/net45/Google.Apis.Auth.pdb",
+        "lib/net45/Google.Apis.Auth.xml",
+        "lib/net461/Google.Apis.Auth.PlatformServices.dll",
+        "lib/net461/Google.Apis.Auth.dll",
+        "lib/net461/Google.Apis.Auth.pdb",
+        "lib/net461/Google.Apis.Auth.xml",
+        "lib/netstandard1.3/Google.Apis.Auth.PlatformServices.dll",
+        "lib/netstandard1.3/Google.Apis.Auth.dll",
+        "lib/netstandard1.3/Google.Apis.Auth.pdb",
+        "lib/netstandard1.3/Google.Apis.Auth.xml",
+        "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll",
+        "lib/netstandard2.0/Google.Apis.Auth.dll",
+        "lib/netstandard2.0/Google.Apis.Auth.pdb",
+        "lib/netstandard2.0/Google.Apis.Auth.xml"
+      ]
+    },
+    "Google.Apis.Core/1.52.0": {
+      "sha512": "cgQpnZ9IC5SBNsAFTXHKUMB8bOkBWPLtXcLgwSYkV8oL0FfUdHwrDzH5qrf/mFB9fQIPgJyV6tdUwf2hu1UJ+A==",
+      "type": "package",
+      "path": "google.apis.core/1.52.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "NuGetIcon.png",
+        "google.apis.core.1.52.0.nupkg.sha512",
+        "google.apis.core.nuspec",
+        "lib/net45/Google.Apis.Core.dll",
+        "lib/net45/Google.Apis.Core.pdb",
+        "lib/net45/Google.Apis.Core.xml",
+        "lib/netstandard1.3/Google.Apis.Core.dll",
+        "lib/netstandard1.3/Google.Apis.Core.pdb",
+        "lib/netstandard1.3/Google.Apis.Core.xml",
+        "lib/netstandard2.0/Google.Apis.Core.dll",
+        "lib/netstandard2.0/Google.Apis.Core.pdb",
+        "lib/netstandard2.0/Google.Apis.Core.xml"
+      ]
+    },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
       "type": "package",
@@ -196,6 +359,37 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
       ]
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
@@ -450,23 +644,24 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Google.Apis.Admin.Directory.directory_v1 >= 1.52.0.2364",
       "System.Data.SqlClient >= 4.8.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Neide\\.nuget\\packages\\": {}
+    "C:\\Users\\52391129831\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Neide\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj",
+      "projectUniqueName": "C:\\Users\\52391129831\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj",
       "projectName": "senai_projmed_webApi",
-      "projectPath": "C:\\Users\\Neide\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj",
-      "packagesPath": "C:\\Users\\Neide\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Neide\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\obj\\",
+      "projectPath": "C:\\Users\\52391129831\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj",
+      "packagesPath": "C:\\Users\\52391129831\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\52391129831\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Neide\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\52391129831\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -492,6 +687,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Google.Apis.Admin.Directory.directory_v1": {
+            "target": "Package",
+            "version": "[1.52.0.2364, )"
+          },
           "System.Data.SqlClient": {
             "target": "Package",
             "version": "[4.8.2, )"

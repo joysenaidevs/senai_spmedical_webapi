@@ -15,7 +15,14 @@ namespace senai_projmed_webApi.Repositories
     public class ClinicaRepository : IClinicaRepository
     {
         //                              servidor(DESKTOP-SP7RV1S\\SQLEXPRESS) initialCatalog=nome do banco de dados
-        private string stringConexao = "Data Source=; initialCatalog=SpMedical; user Id=sa; pwd=adm@132" ;
+        //private string stringConexao = "Data Source=; initialCatalog=SpMedical; user Id=sa; pwd=adm@132" ;
+
+
+        /// <summary>
+        /// string de conexão do SENAI
+        /// </summary>
+        private string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
+
 
         /// <summary>
         /// Atualiza a clinica passando o id pela url
@@ -28,7 +35,7 @@ namespace senai_projmed_webApi.Repositories
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
                 //query declarada a ser executada
-                string updateUrl = "UPDATE Clinicas SET nomeFantasia = @nomeFantasia, cnpj = @cnpj, razaoSocial = @razaoSocial, endereco = @endereco, horarioFuncionamento = @horarioFuncionamento WHERE idClinica = @ID";
+                string updateUrl = "UPDATE clinicas SET nomeFantasia = @nomeFantasia, cnpj = @cnpj, razaoSocial = @razaoSocial, endereco = @endereco, horarioFuncionamento = @horarioFuncionamento WHERE idClinica = @ID";
 
                 // declara a sqlcommand cmd passando a qeury aser executada e a conexao com parametros
                 using (SqlCommand cmd = new SqlCommand(updateUrl, con))
@@ -47,6 +54,7 @@ namespace senai_projmed_webApi.Repositories
                     cmd.ExecuteNonQuery();
                 }
             }
+
             //Clinica clinicaBuscada = ctx.Clinicas.Find(id);
 
             //if (clinicaAtualizada.RazaoSocial != null)
@@ -91,7 +99,7 @@ namespace senai_projmed_webApi.Repositories
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
                 // query executada
-                string buscarById = "SELECT idClinica, nomeFantasia FROM clinicas WHERE idClinica = @ID ";
+                string buscarById = "SELECT idClinica, nomeFantasia, cnpj, razaoSocial, horarioFuncionamento, endereco FROM clinicas WHERE idClinica = @ID ";
 
                 con.Open();
 
@@ -103,7 +111,7 @@ namespace senai_projmed_webApi.Repositories
                 {
                     // passa o valor para o parametro @ID
                     cmd.Parameters.AddWithValue("@ID", id);
-
+                  
                     // executa a query e vai ler no banco através do cmd e o que voltar irá ser armazenado no rdr
                     rdr = cmd.ExecuteReader();
 
@@ -118,7 +126,17 @@ namespace senai_projmed_webApi.Repositories
                             idClinica = Convert.ToInt32(rdr["idClinica"]),
 
                             // atribui o valor da coluna nome da tabela do banco de dados
-                            nomeFantasia = rdr["nomeFantasia"].ToString()
+                            nomeFantasia = rdr["nomeFantasia"].ToString(),
+
+                            cnpj = Convert.ToInt32(rdr["cnpj"]),
+
+                            razaoSocial = rdr["razaoSocial"].ToString(),
+
+                            horarioFuncionamento = Convert.ToInt32(rdr["horarioFuncionamento"]),
+
+                            endereco = rdr["endereco"].ToString()
+
+
                         };
 
                         // retorna clinicaBuscada com os dados obtidos
@@ -160,13 +178,17 @@ namespace senai_projmed_webApi.Repositories
                                     // "nome" : "')DROP TABLE Clinicas--"
                                     // SQL INJECTION -- 
 
-                string queryInsert = "INSERT INTO Clinicas(nomeFantasia) VALUES (@nomeFantasia)";
+                string queryInsert = "INSERT INTO clinicas(cnpj, nomeFantasia, razaoSocial, horarioFuncionamento, endereco) VALUES (@cnpj, @nomeFantasia, @razaoSocial, @horarioFuncionamento, @endereco)";
 
                 //  declara o SqlCommandQuery que era executada ea conexao como parametros
                 using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                 {
 
+                    cmd.Parameters.AddWithValue("@cnpj", novaClinica.cnpj);
                     cmd.Parameters.AddWithValue("@nomeFantasia", novaClinica.nomeFantasia);
+                    cmd.Parameters.AddWithValue("@razaoSocial", novaClinica.razaoSocial);
+                    cmd.Parameters.AddWithValue("@horarioFuncionamento", novaClinica.horarioFuncionamento);
+                    cmd.Parameters.AddWithValue("@endereco", novaClinica.endereco);
 
                     //abre a conexao com o banco de dados
                     con.Open();
@@ -223,9 +245,9 @@ namespace senai_projmed_webApi.Repositories
             List<ClinicasDomain> listaClinicas = new List<ClinicasDomain>();
 
             // Criando uma nova conexao e um objeto que vai me permitir essa conexão (con)
-            using (SqlConnection con = new SqlConnection(stringConexao) )
+            using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySelectAll = "SELECT idClinica, nomeFantasia, cnpj, razaoSocial, endereco, horarioFuncionamento FROM clinicas ";
+                string querySelectAll = "SELECT cnpj, nomeFantasia, razaoSocial, horarioFuncionamento, endereco FROM clinicas ";
 
                 //abre conexão com o banco de dados
                 con.Open();
@@ -242,7 +264,7 @@ namespace senai_projmed_webApi.Repositories
                     //enquanto tiver registros para serem lidos no rdr o laço se repete
                     while (rdr.Read())
 	                {
-                        ClinicasDomain clinica = new ClinicasDomain()
+                        ClinicasDomain clinicas = new ClinicasDomain()
                         {
                             // atribui a propiedade idClinica com o valor da primeira coluna da tabela do banco de dados
                             idClinica = Convert.ToInt32(rdr[0]),
@@ -260,7 +282,7 @@ namespace senai_projmed_webApi.Repositories
                         };
 
                         // adiciona o objeto Clinica a lista listaClinica
-                        listaClinicas.Add(clinica);
+                        listaClinicas.Add(clinicas);
 	                }
 	            }
             }

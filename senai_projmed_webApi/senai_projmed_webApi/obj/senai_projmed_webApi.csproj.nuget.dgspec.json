@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Neide\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj": {}
+    "C:\\Users\\52391129831\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Neide\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj": {
+    "C:\\Users\\52391129831\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Neide\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj",
+        "projectUniqueName": "C:\\Users\\52391129831\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj",
         "projectName": "senai_projmed_webApi",
-        "projectPath": "C:\\Users\\Neide\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj",
-        "packagesPath": "C:\\Users\\Neide\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Neide\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\obj\\",
+        "projectPath": "C:\\Users\\52391129831\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\senai_projmed_webApi.csproj",
+        "packagesPath": "C:\\Users\\52391129831\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\52391129831\\Desktop\\senai_spmedical_webapi\\senai_projmed_webApi\\senai_projmed_webApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Neide\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\52391129831\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Google.Apis.Admin.Directory.directory_v1": {
+              "target": "Package",
+              "version": "[1.52.0.2364, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.2, )"

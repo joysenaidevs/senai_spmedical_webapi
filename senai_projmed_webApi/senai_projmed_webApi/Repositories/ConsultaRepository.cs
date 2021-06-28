@@ -22,9 +22,9 @@ namespace senai_projmed_webApi.Repositories
 
         public void Cadastrar(ConsultaDomain novaConsulta)
         {
-            ctx.Consultas.Add(novaConsulta);
+            //ctx.Consultas.Add(novaConsulta);
 
-            ctx.SaveChanges();
+            //ctx.SaveChanges();
         }
 
         public void Deletar(int id)
@@ -34,17 +34,19 @@ namespace senai_projmed_webApi.Repositories
 
         public List<ConsultaDomain> ListarTodos()
         {
-            return ctx.Consultas
+            //return ctx.Consultas
 
-                 .Include(c => c.IdPacienteNavigation)
+            //     .Include(c => c.IdPacienteNavigation)
 
-                 .Include(c => c.IdMedicoNavigation)
+            //     .Include(c => c.IdMedicoNavigation)
 
-                 .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation)
+            //     .Include(c => c.IdMedicoNavigation.IdEspecialidadeNavigation)
 
-                 .Include(c => c.IdStatusConsultaNavigation)
+            //     .Include(c => c.IdStatusConsultaNavigation)
 
-                 .ToList();
+            //     .ToList();
+
+            throw new NotImplementedException();
         }
     }
 }

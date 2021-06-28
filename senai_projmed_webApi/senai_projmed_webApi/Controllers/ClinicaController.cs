@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Google.Apis.Admin.Directory.directory_v1.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai_projmed_webApi.Domains;
@@ -46,7 +47,7 @@ namespace senai_projmed_webApi.Controllers
         /// Lista todas as clinicas
         /// </summary>
         /// <returns>Lista de clinicas e status code 200</returns>
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {
