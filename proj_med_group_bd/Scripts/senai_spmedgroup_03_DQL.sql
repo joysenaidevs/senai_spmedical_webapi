@@ -1,4 +1,4 @@
-
+USE medicalGroup;
 -- DQL
 SELECT idUsuario, nomeTipoUsuario, nomeUsuario,email FROM usuarios
 INNER JOIN tipoUsuarios -- JUNTAR COM A TABELA TIPOS USUARIOS
@@ -45,3 +45,6 @@ SELECT *FROM especialidades;
 SELECT * FROM medicos;
 
 SELECT * FROM consultas;
+
+
+ALTER TABLE clinicas ADD '44444444444444', 'Sp Medical Group', 'Clinica Possarie', '09:00', 'Av. Barão de Limeira,878, São Paulo, SP' VARCHAR(100);

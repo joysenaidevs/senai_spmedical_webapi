@@ -15,7 +15,8 @@ VALUES					(1,'Administrador', 'adm@spmedicalgroup', 'adm123')
 GO
 
 INSERT INTO clinicas		(cnpj, nomeFantasia, razaoSocial, horarioFuncionamento, endereco)
-VALUES						('99999999999999', 'SP Medical Group',	'Clinica Possarie',	 '08:00', 'Av. Barão de Limeira,532, São paulo, SP');
+VALUES						('99999999999999', 'SP Medical Group',	'Clinica Possarie',	 '08:00', 'Av. Barão de Limeira,532, São paulo, SP'),
+							('44444444444444', 'Sp Medical Group', 'Clinica Possarie', '09:00', 'Av. Barão de Limeira,878, São Paulo, SP');						
 GO
 
 INSERT INTO  prontuarios	(idUsuario,	nomeProntuario, dataNascimento, telefone, rg, cpf, endereco)
