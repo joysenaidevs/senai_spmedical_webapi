@@ -10,7 +10,7 @@ namespace senai_projmed_webApi.Domains
         public int idConsulta { get; set; }
         public int idProntuario { get; set; }
         public int idMedico { get; set; }
-        public int dataConsulta { get; set; }
+        public DateTime dataConsulta { get; set; }
         public string situacao { get; set; }
 
     }

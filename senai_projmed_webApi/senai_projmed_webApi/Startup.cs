@@ -31,6 +31,12 @@ namespace senai_projmed_webApi
 
             app.UseRouting();
 
+            // Habilita a autenticação
+            app.UseAuthentication();
+
+            // Habilita a autorização
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 // define o mapeamento dos controllers

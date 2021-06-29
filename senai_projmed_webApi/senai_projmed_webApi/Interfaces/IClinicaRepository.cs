@@ -17,7 +17,7 @@ namespace senai_projmed_webApi.Interfaces
         /// retorna todas as clinicas
         /// </summary>
         /// <returns>Lista de clinicas</returns>
-        List<ClinicasDomain> ListarTodos();
+        List<ClinicasDomain> ListarClinicas();
 
 
         /// <summary>

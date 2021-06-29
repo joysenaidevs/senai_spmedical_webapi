@@ -235,10 +235,10 @@ namespace senai_projmed_webApi.Repositories
         /// Lista todas as clinicas existentes
         /// </summary>
         /// <returns>Lista das clinicas e um StatusCode 200 (Ok)</returns>
-        public List<ClinicasDomain> ListarTodos()
+        public List<ClinicasDomain> ListarClinicas()
         {
             // Retorna uma lista com todas as informações das instituições
-           // return ctx.Instituicoes.ToList();
+           // return ctx.Clinicas.ToList();
 
 
             // cria uma lista onde serão armazenados os dados, listaClinicas

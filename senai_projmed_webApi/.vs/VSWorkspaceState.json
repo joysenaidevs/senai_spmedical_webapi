@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\senai_projmed_webApi",
+    "\\senai_projmed_webApi\\Controllers",
     "\\senai_projmed_webApi\\Domains",
     "\\senai_projmed_webApi\\Interfaces",
     "\\senai_projmed_webApi\\Repositories"
   ],
-  "SelectedNode": "\\senai_projmed_webApi\\Interfaces\\IMedicoRepository.cs",
+  "SelectedNode": "\\senai_projmed_webApi\\Controllers",
   "PreviewInSolutionExplorer": false
 }

@@ -20,6 +20,7 @@ namespace senai_projmed_webApi.Controllers
     // resposta da api no formato json
     [Produces("application/json")]
 
+    
 
     // A rota de uma requisiçãi será no formato dominio\api\nomeController
     // http:\\localhost:5000\api\Clinicas
@@ -32,14 +33,14 @@ namespace senai_projmed_webApi.Controllers
     [Authorize(Roles = "1")]
     public class ClinicaController : ControllerBase
     {
-        private IClinicaRepository _clinicaRepository { get; set; }
+        private IClinicaRepository _clinicasRepository { get; set; }
 
         /// <summary>
         /// Instancia o objeto _clinicaRepository para que haja referencia aos métodos no repositório
         /// </summary>
         public ClinicaController()
         {
-            _clinicaRepository = new ClinicaRepository();
+            _clinicasRepository = new ClinicaRepository();
         }
 
 
@@ -52,20 +53,20 @@ namespace senai_projmed_webApi.Controllers
         public IActionResult Get()
         {
             // cria a lista listaClinica para receber os dados
-            List<ClinicasDomain> listaClinica = _clinicaRepository.ListarTodos();
+            List<ClinicasDomain> listaClinicas = _clinicasRepository.ListarClinicas();
 
             // retorna status code 200 (ok) com a lista no formato JSON
-            return Ok(listaClinica);
+            return Ok(listaClinicas);
 
 
             //try
             //{
-            //    return Ok(_IClinicaRepository.Read());
+            //    return Ok(_clinicaRepository.ListarTodos());
             //}
             //catch (Exception error)
             //{
 
-            //    return BadRequest(error)
+            //    return BadRequest(error);
 
             //}
         }
@@ -82,7 +83,7 @@ namespace senai_projmed_webApi.Controllers
         public IActionResult GetById(int id)
         {
 
-            ClinicasDomain clinicaBuscada = _clinicaRepository.BuscarPorId(id);
+            ClinicasDomain clinicaBuscada = _clinicasRepository.BuscarPorId(id);
 
             // verifica se nenhum genero foi encontrado
             if (clinicaBuscada == null)
@@ -122,7 +123,7 @@ namespace senai_projmed_webApi.Controllers
         public IActionResult Post(ClinicasDomain novaClinica)
         {
             // Faz a chamada do metodo Cadastrar()
-            _clinicaRepository.Cadastrar(novaClinica);
+            _clinicasRepository.Cadastrar(novaClinica);
 
             // retorna entao, statusCode 201
             return StatusCode(201);
@@ -153,7 +154,7 @@ namespace senai_projmed_webApi.Controllers
         public IActionResult Put(int id, ClinicasDomain clinicaAtualizada)
         {
             // faz a chamada para o método .AtualizarIdUrl passando os parÂmetros
-            _clinicaRepository.AtualizarIdUrl(id, clinicaAtualizada);
+            _clinicasRepository.AtualizarIdUrl(id, clinicaAtualizada);
             
             // retorna um No Content
             return StatusCode(204);
@@ -181,7 +182,7 @@ namespace senai_projmed_webApi.Controllers
         [HttpDelete("{Id}")]
         public IActionResult Delete(int id)
         {
-            _clinicaRepository.Deletar(id);
+            _clinicasRepository.Deletar(id);
 
             return StatusCode(204);
 
