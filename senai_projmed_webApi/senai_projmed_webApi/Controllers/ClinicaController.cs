@@ -30,7 +30,7 @@ namespace senai_projmed_webApi.Controllers
     [ApiController]
 
     // Define que somente o administrador pode acessar os métodos
-    [Authorize(Roles = "1")]
+    //[Authorize(Roles = "1")]
     public class ClinicaController : ControllerBase
     {
         private IClinicaRepository _clinicasRepository { get; set; }
@@ -78,14 +78,14 @@ namespace senai_projmed_webApi.Controllers
         /// <param name="id">id da clinica que será buscada</param>
         /// <returns>uma clinica buscada ou notFound caso nenhum genero seja encontrado</returns>
         /// http://localhost:5000/api/clinicas
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
 
             ClinicasDomain clinicaBuscada = _clinicasRepository.BuscarPorId(id);
 
-            // verifica se nenhum genero foi encontrado
+            // verifica se nenhuma clinica foi encontrada
             if (clinicaBuscada == null)
             {
                 // caso n seja encontrada retorna um StatusCode(404) com a mensagem personalizada
@@ -118,7 +118,7 @@ namespace senai_projmed_webApi.Controllers
         /// <returns>retorna um StatusCode (201 - Created)</returns>
         /// http://localhost:5000/api/clinicas
         //end point para cadastrar (POST)
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(ClinicasDomain novaClinica)
         {
@@ -149,7 +149,7 @@ namespace senai_projmed_webApi.Controllers
         /// <param name="id">id da clinica atualizada</param>
         /// <param name="clinicaAtualizada"> objeto com as novas informações</param>
         /// <returns>StatusCode 204 - No Content</returns>
-        [Authorize(Roles = "1")]
+        //[Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, ClinicasDomain clinicaAtualizada)
         {

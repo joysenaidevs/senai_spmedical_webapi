@@ -20,7 +20,7 @@ namespace senai_projmed_webApi.Controllers
 
     [ApiController]
 
-    [Authorize(Roles = "1")]
+    //[Authorize(Roles = "1")]
     public class MedicosController : ControllerBase
     {
         private IMedicoRepository _medicosRepository { get; set; }
@@ -36,7 +36,7 @@ namespace senai_projmed_webApi.Controllers
         /// Lista todos os medicos
         /// </summary>
         /// <returns>Retorna um statusCode 200 - Ok</returns>
-        [Authorize]
+        //[Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult Get()
         {

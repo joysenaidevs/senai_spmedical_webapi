@@ -21,7 +21,7 @@ namespace senai_projmed_webApi.Repositories
         /// <summary>
         /// string de conexão do SENAI
         /// </summary>
-        private string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
+        string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
 
 
         /// <summary>
@@ -269,10 +269,10 @@ namespace senai_projmed_webApi.Repositories
                             // atribui a propiedade idClinica com o valor da primeira coluna da tabela do banco de dados
                             idClinica = Convert.ToInt32(rdr[0]),
 
-                            //atribui à propiedade nome o valor da segunda coluna da tabela do banco de dados
-                            nomeFantasia = rdr[1].ToString(),
+                            cnpj = Convert.ToInt32(rdr[1]),
 
-                            cnpj = Convert.ToInt32(rdr[2]),
+                            //atribui à propiedade nome o valor da segunda coluna da tabela do banco de dados
+                            nomeFantasia = rdr[2].ToString(),
 
                             razaoSocial = rdr[3].ToString(),
 
