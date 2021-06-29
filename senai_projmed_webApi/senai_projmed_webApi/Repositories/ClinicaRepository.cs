@@ -15,13 +15,16 @@ namespace senai_projmed_webApi.Repositories
     public class ClinicaRepository : IClinicaRepository
     {
         //                              servidor(DESKTOP-SP7RV1S\\SQLEXPRESS) initialCatalog=nome do banco de dados
-        //private string stringConexao = "Data Source=; initialCatalog=SpMedical; user Id=sa; pwd=adm@132" ;
+        /// <summary>
+        ///string de conexao Joyce
+        /// </summary>
+        private string stringConexao = "Data Source=WINDOWS\\SQLEXPRESS; initial catalog=medicalGroup; user Id=sa; pwd=adm@132";
 
 
         /// <summary>
         /// string de conexão do SENAI
         /// </summary>
-        string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
+        //string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
 
 
         /// <summary>
@@ -114,6 +117,8 @@ namespace senai_projmed_webApi.Repositories
                   
                     // executa a query e vai ler no banco através do cmd e o que voltar irá ser armazenado no rdr
                     rdr = cmd.ExecuteReader();
+
+                    con.Open();
 
                     //condicional para verificar algo
                     // se eu consigo ler um valor no rdr: Verifica o resultado da query retornou algum registro
