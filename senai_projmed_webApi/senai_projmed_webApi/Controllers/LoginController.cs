@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using senai_projmed_webApi.Domains;
 using senai_projmed_webApi.Interfaces;
 using senai_projmed_webApi.Repositories;
 using System;
@@ -12,8 +13,17 @@ using System.Threading.Tasks;
 
 namespace senai_projmed_webApi.Controllers
 {
+    /// <summary>
+    /// controllers responsavel pelos end points dos usuarios
+    /// </summary>
+    /// 
+
+    // http://localhost:5000/api/usuarios
     [Route("api/[controller]")]
+
     [ApiController]
+
+    
     public class LoginController : ControllerBase
     {
 
@@ -36,74 +46,76 @@ namespace senai_projmed_webApi.Controllers
         /// <param name="login">Objeto login que contém o e-mail e a senha do usuário</param>
         /// <returns>Retorna um token com as informações do usuário</returns>
         /// dominio/api/Login
-        [HttpPost]
-        public IActionResult Post(LoginViewModel login)
+        [HttpPost("Login")]
+        public IActionResult Login(UsuarioDomain login)
         {
-            try
+            // busca usuario por Email e senha
+            UsuarioDomain usuarioBuscado = _usuarioRepository.BuscarPorEmailSenha(login.email, login.senha);
+
+            // caso nao encontre nenhum usuario com o email e senha informados
+            if (usuarioBuscado == null)
             {
-                // Busca o usuário pelo e-mail e senha
-                Usuario usuarioBuscado = _usuarioRepository.Login(login.Email, login.Senha);
-
-                // Caso não encontre nenhum usuário com o e-mail e senha informados
-                if (usuarioBuscado == null)
-                {
-                    // Retorna NotFound com uma mensagem de erro
-                    return NotFound("E-mail ou senha inválidos!");
-                }
-
-                // Caso o usuário seja encontrado, prossegue para a criação do token
-
-                /*
-                    Dependências
-                    Criar e validar o JWT:      System.IdentityModel.Tokens.Jwt
-                    Integrar a autenticação:    Microsoft.AspNetCore.Authentication.JwtBearer (versão compatível com o .NET do projeto)
-                */
-
-                // Define os dados que serão fornecidos no token - Payload
-                var claims = new[]
-                {
-                    // Armazena na Claim o e-mail do usuário autenticado
-                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
-
-                    // Armazena na Claim o ID do usuário autenticado
-                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
-
-                    // Armazena na Claim o tipo de usuário que foi autenticado (Administrador ou Comum)
-                    new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuario.ToString()),
-
-                    // Armazena na Claim o tipo de usuário que foi autenticado (Administrador ou Comum) de forma personalizada
-                    new Claim("role", usuarioBuscado.IdTipoUsuario.ToString()),
-
-                    // Armazena na Claim o nome do usuário que foi autenticado
-                    new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.NomeUsuario)
-                };
-
-                // Define a chave de acesso ao token
-                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("spmedical-chave-autenticacao"));
-
-                // Define as credenciais do token - Header
-                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-                // Gera o token
-                var token = new JwtSecurityToken(
-                    issuer: ".webApi",                 // emissor do token
-                    audience: ".webApi",               // destinatário do token
-                    claims: claims,                        // dados definidos acima
-                    expires: DateTime.Now.AddMinutes(30),  // tempo de expiração
-                    signingCredentials: creds              // credenciais do token
-                );
-
-                // Retorna Ok com o token
-                return Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(token)
-                });
+                // retorna NotFound com mensagem personalizada
+                return NotFound("Email e senha inválidos!");
             }
-            catch (Exception ex)
+
+            return Ok(usuarioBuscado);
+
+            //Caso encontre, prossegue para a criação do token
+
+             //declaramos a variavel do tipo ARRAY
+             //definindo dados que serão fornecidos no token -Payload
+            var claim = new[]
             {
-                return BadRequest(ex);
-            }
+                // formato para trazer uma claim (tipoDaClaim, valorDaClaim)
+                new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.email),
+                
+                // utilizaremos JTI Para especificar o ID DO USUARIO
+                new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.idUsuario.ToString()),
+
+                // utilizaremos ClaimTypes para definir quais metodos o usuario pode acessar
+                //Role = para condição
+                new Claim(ClaimTypes.Role, usuarioBuscado.idTipoUsuario.ToString()),
+
+                // criando uma claim personalizada
+                // new Claim("Claim Personalizada", "Valor da Claim")
+            };
+
+            //Define a chave de acesso para o token
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("key-autentication"));
+
+            // credenciais do token            chave     tipo de criptografia
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            // gerando o token  tipoDoToken
+            var gerarToken = new JwtSecurityToken(
+
+                // propiedades
+
+                // quem emite o token , quem criou o token
+                issuer: "senai_projMedical",               // emissor (gerando token)
+                audience: "senai_projmed_webApi",           // quem recebe o token
+                claims: claim,                              // representa OS DADOS DA CLAIM ACIMA
+                                                            //       (Now: data e hora do sistema)
+                expires: DateTime.Now.AddMinutes(30),       // tempo de expiração
+                signingCredentials: creds                   // credenciais do token
+            );
+
+            // retornaremos status code - 200 Ok com o token criado
+            return Ok(new
+            {
+                token = new JwtSecurityTokenHandler().WriteToken(gerarToken)
+            });
+
+            //catch (Exception ex)
+            //{
+            //    return BadRequest(ex);
+            //}
+
         }
+
     }
+
 }
+
     

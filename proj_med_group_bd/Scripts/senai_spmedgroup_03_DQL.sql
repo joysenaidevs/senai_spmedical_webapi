@@ -46,5 +46,6 @@ SELECT * FROM medicos;
 
 SELECT * FROM consultas;
 
+SELECT * FROM tipoUsuarios;
 
-ALTER TABLE clinicas ADD '44444444444444', 'Sp Medical Group', 'Clinica Possarie', '09:00', 'Av. Barão de Limeira,878, São Paulo, SP' VARCHAR(100);
+
