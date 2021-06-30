@@ -3,8 +3,6 @@ using senai_projmed_webApi.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace senai_projmed_webApi.Repositories
 {
@@ -18,13 +16,13 @@ namespace senai_projmed_webApi.Repositories
         /// <summary>
         ///string de conexao Joyce
         /// </summary>
-       // private string stringConexao = "Data Source=WINDOWS\\SQLEXPRESS; initial catalog=medicalGroup; user Id=sa; pwd=adm@132";
+        private string stringConexao = "Data Source=WINDOWS\\SQLEXPRESS; initial catalog=medicalGroup; user Id=sa; pwd=adm@132";
 
 
         /// <summary>
         /// string de conexão do SENAI
         /// </summary>
-        string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
+       // string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
 
 
         /// <summary>

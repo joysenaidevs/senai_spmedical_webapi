@@ -147,3 +147,11 @@ C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed
 C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\obj\Debug\net5.0\senai_projmed_webApi.pdb
 C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\obj\Debug\net5.0\senai_projmed_webApi.genruntimeconfig.cache
 C:\Users\52391129831\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\bin\Debug\net5.0\senai_projmed_webApi.xml
+C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\obj\Debug\net5.0\senai_projmed_webApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Neide\Desktop\senai_spmedical_webapi\senai_projmed_webApi\senai_projmed_webApi\obj\Debug\net5.0\senai_projmed_webApi.xml

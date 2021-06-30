@@ -11,7 +11,7 @@ namespace senai_projmed_webApi.Domains
         public int idUsuario { get; set; }
         public int idTipoUsuario { get; set; }
 
-        [Required(ErrorMessage = "Insira o nome de usuario!")]
+        //[Required(ErrorMessage = "Insira o nome de usuario!")]
         public string nomeUsuario { get; set; }
 
         [Required(ErrorMessage ="Insira o seu email!")]

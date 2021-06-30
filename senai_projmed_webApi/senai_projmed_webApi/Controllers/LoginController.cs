@@ -59,9 +59,9 @@ namespace senai_projmed_webApi.Controllers
                 return NotFound("Email e senha inválidos!");
             }
 
-            return Ok(usuarioBuscado);
-
             //Caso encontre, prossegue para a criação do token
+
+            // nesta fase da API pegarei as informações d token de login no POSTMAN
 
              //declaramos a variavel do tipo ARRAY
              //definindo dados que serão fornecidos no token -Payload
@@ -75,14 +75,14 @@ namespace senai_projmed_webApi.Controllers
 
                 // utilizaremos ClaimTypes para definir quais metodos o usuario pode acessar
                 //Role = para condição
-                new Claim(ClaimTypes.Role, usuarioBuscado.idTipoUsuario.ToString()),
+                new Claim(ClaimTypes.Role, usuarioBuscado.idTipoUsuario.ToString())
 
                 // criando uma claim personalizada
                 // new Claim("Claim Personalizada", "Valor da Claim")
             };
 
             //Define a chave de acesso para o token
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("key-autentication"));
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("key-authentication"));
 
             // credenciais do token            chave     tipo de criptografia
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

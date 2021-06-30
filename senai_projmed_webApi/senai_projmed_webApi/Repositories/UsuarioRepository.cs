@@ -12,7 +12,12 @@ namespace senai_projmed_webApi.Repositories
     {
 
         //a string de conexao vai aqui
-        private string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
+        //private string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
+
+        /// <summary>
+        ///string de conexao Joyce
+        /// </summary>
+        private string stringConexao = "Data Source=WINDOWS\\SQLEXPRESS; initial catalog=medicalGroup; user Id=sa; pwd=adm@132";
 
         public void Atualizar(int id, UsuarioDomain usuarioAtualizado)
         {
@@ -25,7 +30,7 @@ namespace senai_projmed_webApi.Repositories
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
                 // Define o comando a ser executado no banco de dados
-                string querySelect = "SELECT idUsuario, idTipoUsuario, nomeUsuario, email, senha FROM usuarios WHERE email = @email AND senha = @senha;";
+                string querySelect = "SELECT idUsuario, idTipoUsuario, nomeUsuario, email, senha FROM usuarios WHERE email = @email AND senha = @senha";
 
                 // Define o comando cmd passando a query e a conexão
                 using (SqlCommand cmd = new SqlCommand(querySelect, con))
@@ -50,9 +55,9 @@ namespace senai_projmed_webApi.Repositories
                             // Atribui às propriedades os valores das colunas do banco de dados
                             idUsuario   = Convert.ToInt32(rdr["idUsuario"]),
                             idTipoUsuario = Convert.ToInt32(rdr["idTipoUsuario"]),
+                            nomeUsuario = rdr["nomeUsuario"].ToString(),
                             email       = rdr["email"].ToString(),
-                            senha       = rdr["senha"].ToString(),
-                            nomeUsuario = rdr["nomeUsuario"].ToString()
+                            senha       = rdr["senha"].ToString()
                  
                         };
 
@@ -73,7 +78,27 @@ namespace senai_projmed_webApi.Repositories
 
         public void Cadastrar(UsuarioDomain novoUsuario)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+
+                string queryInsert = "INSERT INTO usuarios(idTipoUsuario, nomeUsuario, email, senha) VALUES (@idTipoUsuario, @nomeUsuario, @email, @senha)";
+
+                //  declara o SqlCommandQuery que era executada ea conexao como parametros
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+
+                    cmd.Parameters.AddWithValue("@idTipoUsuario", novoUsuario.idTipoUsuario);
+                    cmd.Parameters.AddWithValue("@nomeUsuario", novoUsuario.nomeUsuario);
+                    cmd.Parameters.AddWithValue("@email", novoUsuario.email);
+                    cmd.Parameters.AddWithValue("@senha", novoUsuario.senha);
+
+                    //abre a conexao com o banco de dados
+                    con.Open();
+
+                    // executa a query
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Deletar(int id)

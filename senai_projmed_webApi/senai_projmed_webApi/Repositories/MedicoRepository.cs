@@ -17,11 +17,11 @@ namespace senai_projmed_webApi.Repositories
         /// <summary>
         ///string de conexao Joyce
         /// </summary>
-        //private string stringConexao = "Data Source=WINDOWS\\SQLEXPRESS; initial catalog=medicalGroup; user Id=sa; pwd=adm@132";
+        private string stringConexao = "Data Source=WINDOWS\\SQLEXPRESS; initial catalog=medicalGroup; user Id=sa; pwd=adm@132";
 
 
         //string de conexao
-        string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
+        //string stringConexao = "Data Source=LAB08DESK115999\\SQLEXPRESS; initial catalog=medicalGroup; integrated security=true";
 
 
         public void AtualizarIdCorpo(MedicosDomain consulta)
